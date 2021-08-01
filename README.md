@@ -1,2 +1,3 @@
 # auto-google-search
-An automated tool for searching on Google and accessing the results
+auto-google-search is an automated tool for searching on Google and accessing the results.
+Mainly focuses on image search.
