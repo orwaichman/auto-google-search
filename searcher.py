@@ -249,7 +249,7 @@ class Searcher(Browser, BasicSearcher):
             return  # No results found
 
         previous_result = None
-        for _ in itertools.islice(itertools.count(), 0, max_iterations):
+        for i in itertools.islice(itertools.count(), 0, max_iterations):
             result_div = self._driver.find_element_by_xpath(GoogleXpaths.ImageSearch.OPENED_RESULT_DIV)
             self._wait_until_image_fully_loaded()
             result = self._parse_opened_image_result(result_div)
@@ -265,7 +265,9 @@ class Searcher(Browser, BasicSearcher):
             # Check if reached to the end
             if next_button.get_attribute('disabled') == 'true':
                 break
-            next_button.click()
+
+            if max_iterations and max_iterations > i + 1:
+                next_button.click()
             previous_result = result
 
     def _wait_until_image_fully_loaded(self):
