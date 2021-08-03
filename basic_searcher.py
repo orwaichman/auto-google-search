@@ -3,44 +3,16 @@ import json
 import re
 import urllib.parse
 
+from basic_browser import BasicBrowser
 from const import GOOGLE_SEARCH_URL, GOOGLE_IMAGE_URL_SEARCH_URL, GoogleRegex, GoogleXpaths
 from exceptions import NoSuchElement
 from result import ImageResult
 
 
-class BasicSearcher(object):
+class BasicSearcher(BasicBrowser):
     """
     BasicSearcher is a prototype of an object with actions related to Google search
     """
-    def __init__(self):
-        pass
-
-    def _get(self, url):
-        return self._non_delayed_get(url)
-
-    def _non_delayed_get(self, url):
-        raise NotImplemented
-
-    def _find_element_by_xpath(self, xpath):
-        elements = self._find_elements_by_xpath(xpath)
-        if not elements:
-            raise NoSuchElement(f'Could not find element "{xpath}"')
-        return elements[0]
-
-    def _find_elements_by_xpath(self, xpath):
-        raise NotImplemented
-
-    @staticmethod
-    def _get_element_attribute(element, attr):
-        raise NotImplemented
-
-    @staticmethod
-    def _get_element_text(element):
-        raise NotImplemented
-
-    def _click_link(self, element):
-        url = self._get_element_attribute(element, 'href')
-        self._get(url)
 
     def search(self, text):
         """
