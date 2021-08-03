@@ -1,0 +1,5 @@
+selenium
+pytest
+pytest-dependency==0.5.1
+urllib
+lxml

@@ -1,13 +1,10 @@
 import itertools
 import time
 
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import NoSuchElementException
 
 from basic_searcher import BasicSearcher
-from browser import Browser
+from selenium_browser import SeleniumBrowser
 from const import GOOGLE_URL, GoogleXpaths
 from exceptions import NoSuchElement
 from utils import parse_image_result_site_url, parse_image_result_image_url, random_wait
@@ -20,13 +17,13 @@ MAX_DELAY = 7  # Seconds
 MAX_ATTEMPTS = 10
 
 
-class SeleniumSearcher(Browser, BasicSearcher):
+class SeleniumSearcher(SeleniumBrowser, BasicSearcher):
     """
     SeleniumSearcher can perform miscellaneous web scraping actions in Google search, using Selenium webdriver
     """
 
     def __init__(self, **options):
-        Browser.__init__(self, **options)
+        SeleniumBrowser.__init__(self, **options)
         BasicSearcher.__init__(self)
 
     def _start(self, **options):
@@ -36,49 +33,6 @@ class SeleniumSearcher(Browser, BasicSearcher):
     def _get(self, url):
         random_wait(ARTIFICIAL_AVERAGE_DELAY)
         return self._non_delayed_get(url)
-
-    def _non_delayed_get(self, url):
-        self._driver.get(url)
-
-    def _find_element_by_xpath(self, xpath):
-        try:
-            return self._driver.find_element_by_xpath(xpath)
-        except NoSuchElementException:
-            raise NoSuchElement(f'Could not find element "{xpath}"')
-
-    def _find_elements_by_xpath(self, xpath):
-        return self._driver.find_elements_by_xpath(xpath)
-
-    @staticmethod
-    def _get_element_attribute(element, attr):
-        return element.get_attribute(attr)
-
-    @staticmethod
-    def _get_element_text(element):
-        return element.get_attribute('textContent')
-
-    def _wait_for_elements(self, xpath):
-        """
-        Waits for elements to load and fetches them
-
-        Args:
-            xpath (str):
-
-        Returns:
-            list[WebElement]
-        """
-        try:
-            WebDriverWait(self._driver, MAX_DELAY).until(
-                EC.presence_of_element_located((By.XPATH, xpath)))
-            return self._find_elements_by_xpath(xpath)
-        except TimeoutException:
-            return []
-
-    def _wait_for_element(self, xpath):
-        elements = self._wait_for_elements(xpath)
-        if not elements:
-            raise NoSuchElement(f'Could not find element "{xpath}"')
-        return elements[0]
 
     def shallow_scan_image_results(self, max_iterations: int = None):
         """
