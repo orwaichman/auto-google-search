@@ -3,10 +3,10 @@ import json
 import re
 import urllib.parse
 
-from basic_browser import BasicBrowser
-from const import GOOGLE_SEARCH_URL, GOOGLE_IMAGE_URL_SEARCH_URL, GoogleRegex, GoogleXpaths
-from exceptions import NoSuchElement
-from result import ImageResult
+from .basic_browser import BasicBrowser
+from .const import GOOGLE_SEARCH_URL, GOOGLE_IMAGE_URL_SEARCH_URL, GoogleRegex, GoogleXpaths
+from .exceptions import NoSuchElement
+from .result import ImageResult
 
 
 class BasicSearcher(BasicBrowser):

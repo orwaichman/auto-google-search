@@ -4,7 +4,7 @@ import re
 import time
 import urllib.parse
 
-from const import GoogleRegex
+from .const import GoogleRegex
 
 NORMAL_MIN_COEFFICIENT = 0.2  # determines minimal value proportionally to value
 NORMAL_SCALE_COEFFICIENT = 0.3  # determines scale proportionally to value
