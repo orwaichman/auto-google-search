@@ -1,6 +1,6 @@
 import pytest
 
-from const import IMAGES_SECTION
+from google_search.const import IMAGES_SECTION
 from tests import TestingSeleniumSearcher
 
 

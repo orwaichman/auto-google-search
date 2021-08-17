@@ -4,8 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-from basic_browser import BasicBrowser
-from exceptions import NoSuchElement
+from .basic_browser import BasicBrowser
+from .exceptions import NoSuchElement
 
 MAX_DELAY = 7  # Seconds
 

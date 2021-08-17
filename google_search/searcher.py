@@ -2,10 +2,10 @@ import requests
 import urllib.parse
 from lxml import html
 
-from background_browser import BackgroundBrowser
-from basic_searcher import BasicSearcher
-from const import NON_BOT_USER_AGENT
-from utils import random_wait
+from .background_browser import BackgroundBrowser
+from .basic_searcher import BasicSearcher
+from .const import NON_BOT_USER_AGENT
+from .utils import random_wait
 
 # Artificial delay to try to avoid being recognized as bots. Preferable use is before each GET request in the browser
 ARTIFICIAL_AVERAGE_DELAY = 1.5  # Seconds

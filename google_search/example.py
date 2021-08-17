@@ -1,5 +1,5 @@
-from selenium_searcher import SeleniumSearcher
-from const import WEBDRIVER_PATH
+from .selenium_searcher import SeleniumSearcher
+from .const import WEBDRIVER_PATH
 
 
 def main():

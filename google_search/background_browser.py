@@ -2,7 +2,7 @@ import requests
 import urllib.parse
 from lxml import html
 
-from basic_browser import BasicBrowser
+from .basic_browser import BasicBrowser
 
 
 class BackgroundBrowser(BasicBrowser):

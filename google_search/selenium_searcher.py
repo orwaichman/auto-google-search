@@ -3,12 +3,12 @@ import time
 
 from selenium.common.exceptions import NoSuchElementException
 
-from basic_searcher import BasicSearcher
-from selenium_browser import SeleniumBrowser
-from const import GOOGLE_URL, GoogleXpaths
-from exceptions import NoSuchElement
-from utils import parse_image_result_site_url, parse_image_result_image_url, random_wait
-from result import ImageResult
+from .basic_searcher import BasicSearcher
+from .selenium_browser import SeleniumBrowser
+from .const import GOOGLE_URL, GoogleXpaths
+from .exceptions import NoSuchElement
+from .utils import parse_image_result_site_url, parse_image_result_image_url, random_wait
+from .result import ImageResult
 
 # Artificial delay to try to avoid being recognized as bots. Preferable use is before each GET request in the browser
 ARTIFICIAL_AVERAGE_DELAY = 0.5  # Seconds.

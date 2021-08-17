@@ -1,8 +1,8 @@
 import abc
 
-from const import WEBDRIVER_PATH
-from selenium_searcher import SeleniumSearcher
-from searcher import Searcher
+from google_search import WEBDRIVER_PATH
+from google_search import SeleniumSearcher
+from google_search import Searcher
 
 
 class Singleton(type):

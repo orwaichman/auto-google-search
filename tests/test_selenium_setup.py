@@ -3,7 +3,7 @@ import pytest
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 
-from const import WEBDRIVER_PATH
+from google_search import WEBDRIVER_PATH
 
 
 @pytest.mark.dependency()

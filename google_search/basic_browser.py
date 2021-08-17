@@ -1,6 +1,6 @@
 import contextlib
 
-from exceptions import NoSuchElement
+from .exceptions import NoSuchElement
 
 
 class BasicBrowser(contextlib.AbstractContextManager):
